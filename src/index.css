@@ -66,6 +66,34 @@ body {
   font-family: 'JetBrains Mono', monospace;
 }
 
+/* Responsive Grid Engine */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.responsive-span-8 {
+  grid-column: span 8;
+}
+
+.responsive-span-7 {
+  grid-column: span 7;
+}
+
+.responsive-span-6 {
+  grid-column: span 6;
+}
+
+.responsive-span-5 {
+  grid-column: span 5;
+}
+
+.responsive-span-4 {
+  grid-column: span 4;
+}
+
 /* Glassmorphism Card Utility */
 .glass-panel {
   background: var(--bg-card);
@@ -75,6 +103,7 @@ body {
   border-radius: var(--radius-lg);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-in-out;
+  width: 100%;
 }
 
 .glass-panel:hover {
@@ -142,9 +171,9 @@ body {
   color: var(--text-primary);
   font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
-  font-size: clamp(1rem, 3.5vw, 1.25rem);
-  min-height: 52px;
-  padding: 12px 6px;
+  font-size: clamp(0.95rem, 3vw, 1.2rem);
+  min-height: 50px;
+  padding: 10px 4px;
   border-radius: var(--radius-md);
   cursor: pointer;
   user-select: none;
@@ -153,6 +182,9 @@ body {
   justify-content: center;
   touch-action: manipulation;
   transition: all 0.15s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .keypad-btn:hover {
@@ -181,7 +213,7 @@ body {
   background: rgba(139, 92, 246, 0.15);
   color: #c084fc;
   border-color: rgba(139, 92, 246, 0.3);
-  font-size: clamp(0.85rem, 3vw, 1rem);
+  font-size: clamp(0.8rem, 2.5vw, 0.95rem);
 }
 
 .keypad-btn.fn-btn:hover {
@@ -194,7 +226,7 @@ body {
   color: #ffffff;
   border-color: transparent;
   font-weight: 700;
-  font-size: clamp(1.2rem, 4vw, 1.4rem);
+  font-size: clamp(1.1rem, 3.5vw, 1.3rem);
   box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
 }
 
@@ -265,40 +297,46 @@ body {
 }
 
 /* ==========================================================================
-   MOBILE TUNING & RESPONSIVE MEDIA QUERIES
+   RESPONSIVE MEDIA QUERIES (MOBILE LAYOUT FIX)
    ========================================================================== */
 
-/* Tablet & Mobile Screens (< 1024px) */
-@media (max-width: 1024px) {
+/* Tablet & Mobile Screens (< 960px) */
+@media (max-width: 960px) {
   .dashboard-grid {
-    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
   }
 
   .responsive-span-8,
   .responsive-span-7,
+  .responsive-span-6,
   .responsive-span-5,
-  .responsive-span-4,
-  .responsive-span-2 {
-    grid-column: span 12 !important;
+  .responsive-span-4 {
+    width: 100% !important;
+    grid-column: auto !important;
   }
 
   .quick-stat-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  .formula-grid {
-    grid-template-columns: 1fr !important;
+  .converter-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
   }
 
-  .unit-converter-grid {
-    grid-template-columns: 1fr !important;
+  .converter-grid>div {
+    width: 100% !important;
+    grid-column: auto !important;
   }
 }
 
-/* Mobile Phone Screens (< 768px) */
-@media (max-width: 768px) {
+/* Smartphone Screens (< 640px) */
+@media (max-width: 640px) {
   body {
-    padding: 8px;
+    padding: 6px;
   }
 
   header {
@@ -308,6 +346,7 @@ body {
   .mobile-header-stack {
     flex-direction: column !important;
     align-items: stretch !important;
+    gap: 12px !important;
   }
 
   .nav-tabs-scroll {
@@ -320,8 +359,19 @@ body {
 
   .nav-tabs-scroll button {
     flex-shrink: 0;
-    padding: 8px 12px !important;
+    padding: 8px 10px !important;
     font-size: 0.8rem !important;
+  }
+
+  .sub-tabs-flex {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .sub-tabs-flex button {
+    flex: 1 1 30% !important;
+    padding: 8px 6px !important;
+    font-size: 0.75rem !important;
   }
 
   .keypad-grid-5 {
@@ -330,41 +380,25 @@ body {
   }
 
   .keypad-btn {
-    min-height: 48px;
-    padding: 8px 2px;
-  }
-
-  .calc-display-line {
-    font-size: 1.8rem !important;
+    min-height: 44px;
+    padding: 6px 2px;
+    font-size: clamp(0.8rem, 3.2vw, 1rem);
   }
 
   .quick-stat-grid {
     grid-template-columns: 1fr !important;
   }
-
-  .matrix-input-grid {
-    grid-template-columns: 1fr !important;
-  }
 }
 
-/* Small Smartphone Screens (< 480px) */
-@media (max-width: 480px) {
-  .keypad-grid-5 {
-    grid-template-columns: repeat(5, 1fr) !important;
-    gap: 4px !important;
-  }
-
+/* Extra Small Smartphones (< 400px) */
+@media (max-width: 400px) {
   .keypad-btn {
-    min-height: 44px;
-    font-size: 0.9rem;
-  }
-
-  .calc-display-line {
-    font-size: 1.5rem !important;
+    min-height: 40px;
+    font-size: 0.75rem;
   }
 
   .glass-button {
-    padding: 8px 12px;
-    font-size: 0.8rem;
+    padding: 6px 10px;
+    font-size: 0.75rem;
   }
 }

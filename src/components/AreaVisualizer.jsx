@@ -387,10 +387,10 @@ export default function AreaVisualizer() {
     };
 
     return (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '20px' }}>
+        <div className="dashboard-grid">
 
             {/* Visual Canvas Renderer */}
-            <div style={{ gridColumn: 'span 7' }} className="glass-panel responsive-span-7">
+            <div className="glass-panel responsive-span-7">
                 <div style={{ padding: '24px' }}>
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
@@ -449,7 +449,7 @@ export default function AreaVisualizer() {
             </div>
 
             {/* Shape Selector & Controls */}
-            <div style={{ gridColumn: 'span 5' }} className="glass-panel responsive-span-5">
+            <div className="glass-panel responsive-span-5">
                 <div style={{ padding: '24px' }}>
 
                     <h4 style={{ fontSize: '0.95rem', fontWeight: '700', marginBottom: '16px' }}>Select 2D Shape</h4>

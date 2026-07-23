@@ -194,10 +194,10 @@ export default function Calculator({ onAddHistory, externalInsert }) {
     }, [calculateResult]);
 
     return (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '20px' }}>
+        <div className="dashboard-grid">
 
             {/* Main Display & Keypad */}
-            <div style={{ gridColumn: 'span 8' }} className="glass-panel">
+            <div className="glass-panel responsive-span-8">
                 <div style={{ padding: '24px' }}>
 
                     {/* Top Bar: Angle mode & Copy */}
@@ -272,7 +272,7 @@ export default function Calculator({ onAddHistory, externalInsert }) {
                     </div>
 
                     {/* Sub-Tabs for Keypad modes */}
-                    <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+                    <div className="sub-tabs-flex" style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
                         <button
                             onClick={() => setActiveTabKeypad('scientific')}
                             className={`glass-button ${activeTabKeypad === 'scientific' ? 'active' : ''}`}
@@ -285,7 +285,7 @@ export default function Calculator({ onAddHistory, externalInsert }) {
                             className={`glass-button ${activeTabKeypad === 'functions' ? 'active' : ''}`}
                             style={{ flex: 1, justifyContent: 'center', fontSize: '0.8rem' }}
                         >
-                            Advanced / Hyperbolic
+                            Advanced
                         </button>
                         <button
                             onClick={() => setActiveTabKeypad('constants')}
@@ -297,7 +297,7 @@ export default function Calculator({ onAddHistory, externalInsert }) {
                     </div>
 
                     {/* Keypad Layout Grid */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '10px' }}>
+                    <div className="keypad-grid-5" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '10px' }}>
 
                         {/* Row 1: Memory & Clear */}
                         <button onClick={() => handleMemory('MC')} className="keypad-btn fn-btn">MC</button>
@@ -399,7 +399,7 @@ export default function Calculator({ onAddHistory, externalInsert }) {
             </div>
 
             {/* Side Quick Tools Banner */}
-            <div style={{ gridColumn: 'span 4' }} className="glass-panel">
+            <div className="glass-panel responsive-span-4">
                 <div style={{ padding: '24px' }}>
                     <h3 style={{ fontSize: '1rem', fontWeight: '700', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <Zap size={18} color="var(--accent-amber)" /> Quick Scientific Actions

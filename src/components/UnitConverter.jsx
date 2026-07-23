@@ -144,7 +144,7 @@ export default function UnitConverter() {
                 </div>
 
                 {/* Converter Inputs Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(11, 1fr)', gap: '16px', alignItems: 'center' }}>
+                <div className="converter-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(11, 1fr)', gap: '16px', alignItems: 'center' }}>
 
                     {/* From Input */}
                     <div style={{ gridColumn: 'span 5' }}>

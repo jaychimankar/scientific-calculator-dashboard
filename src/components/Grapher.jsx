@@ -238,10 +238,10 @@ export default function Grapher() {
     };
 
     return (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '20px' }}>
+        <div className="dashboard-grid">
 
             {/* Graph Display Canvas */}
-            <div style={{ gridColumn: 'span 8' }} className="glass-panel">
+            <div className="glass-panel responsive-span-8">
                 <div style={{ padding: '24px' }}>
 
                     {/* Header Controls */}
@@ -311,7 +311,7 @@ export default function Grapher() {
             </div>
 
             {/* Side Controls & Presets */}
-            <div style={{ gridColumn: 'span 4' }} className="glass-panel">
+            <div className="glass-panel responsive-span-4">
                 <div style={{ padding: '24px' }}>
 
                     <h4 style={{ fontSize: '0.95rem', fontWeight: '700', marginBottom: '16px' }}>Function Equations</h4>
