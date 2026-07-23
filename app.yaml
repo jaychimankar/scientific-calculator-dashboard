@@ -1,0 +1,14 @@
+runtime: nodejs20
+
+instance_class: F1
+
+handlers:
+  # Serve static files from the dist directory
+  - url: /(.*)
+    static_files: dist/\1
+    upload: dist/(.*)
+
+  # Fallback to index.html for client-side routing
+  - url: /.*
+    static_files: dist/index.html
+    upload: dist/index.html
